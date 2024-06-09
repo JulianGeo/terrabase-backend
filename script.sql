@@ -8,7 +8,7 @@ create schema backend;
 --Se crean los usuarios por microservicio, se debe asignar una clave, la clave se puede editar con el comando de mas abajo
 create role backend
 with
-    password 'Sm4Rt_R0uT35!_B4ck3nD';
+    password 'T3rR4b4se_B4ck3nD';
 
 -- para cambiar el password del role backend 
 -- ALTER ROLE backend WITH PASSWORD 'ver clave del archivo .env';
