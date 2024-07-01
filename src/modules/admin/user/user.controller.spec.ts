@@ -1,4 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { ClsService } from 'nestjs-cls';
+import { UserCreateService } from './services/user-create.service';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
 
@@ -8,7 +10,32 @@ describe('UserController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [UserController],
-      providers: [UserService],
+      providers: [
+        {
+          provide: UserService,
+          useValue: {
+            info: jest.fn()
+          }
+        },
+        {
+          provide: UserCreateService,
+          useValue: {
+            info: jest.fn()
+          }
+        },
+        {
+          provide: 'winston',
+          useValue: {
+            info: jest.fn()
+          }
+        },
+        {
+          provide: ClsService,
+          useValue: {
+            info: jest.fn()
+          }
+        },
+      ],
     }).compile();
 
     controller = module.get<UserController>(UserController);

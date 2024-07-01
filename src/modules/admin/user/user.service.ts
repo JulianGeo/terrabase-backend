@@ -17,15 +17,12 @@ export class UserService {
   }
 
 
-  //TODO: change this method name, type it also the response from the repository
-  // Get users should retrieve only enabled users?
   async getAllUsers(): Promise<Partial<User>[]> {
     this.logger.info('testing logger')
     const users = await this.userPrismaRepository.getAllUsers();
     return users;
   }
 
-  //TODO: get user for login 
 
 
   async getUser({ email, enabled = true }: { email: string; enabled?: boolean; }): Promise<Partial<User>> {

@@ -1,13 +1,15 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards, UseInterceptors } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from './dto';
 import { UserCreateService } from './services/user-create.service';
 import { UserService } from './user.service';
+import { UserIdInterceptor } from '../../../common/interceptors';
+import { JwtAuthGuard } from '../auth/jwt.strategy.guard';
 
 @ApiTags('User')
 @ApiBearerAuth('JWT-auth')
-//@UseGuards(JwtAuthGuard)
-//@UseInterceptors(UserIdInterceptor)
+@UseGuards(JwtAuthGuard)
+@UseInterceptors(UserIdInterceptor)
 @Controller({ path: 'user', version: '1' })
 export class UserController {
   constructor(
