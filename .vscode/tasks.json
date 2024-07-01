@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Prisma Migration",
+			"type": "shell",
+			"command": "npx prisma migrate dev --name init",
+			"group": {
+				"kind": "preLaunch"
+			},
+			"problemMatcher": "$tsc" // Optional: Match compilation errors
+		}
+	]
+}

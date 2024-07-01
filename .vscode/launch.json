@@ -3,7 +3,7 @@
   "configurations": [
     {
       "env": {
-        "STAGE": "dev"
+        "STAGE": "DEV"
       },
       "type": "node",
       "request": "launch",
@@ -22,7 +22,7 @@
       "envFile": "${workspaceFolder}/.env.stage.env",
       "cwd": "${workspaceRoot}",
       "console": "integratedTerminal",
-      "protocol": "inspector"
+      //"preLaunchTask": "Run Prisma Migration"
     }
   ]
 }
