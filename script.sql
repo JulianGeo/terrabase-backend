@@ -109,31 +109,32 @@ GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA app to app;
 -- Insert: User
 ---------------------------------------------------
 
+
 INSERT INTO app."user" (
     "name",
     email,
     "password",
-    last_login_access,
     enabled,
     created_at,
-    updated_at
+    updated_at,
+    role
 ) VALUES (
         'SUPPORT',
         'support@terrabase.com.co',
         '$2b$10$jiw3J4IEv13ZII5v4Y7A6ueeP/hG.wb2fOJNw30MWrkZmHBSHFikm',
-        now(),
         true,
         now(),
-        now()
+        now(),
+        'support'
     ),
     (
         'ADMIN',
         'admin@terrabase.com.co',
         '$2b$10$jiw3J4IEv13ZII5v4Y7A6ueeP/hG.wb2fOJNw30MWrkZmHBSHFikm',
-        now(),
         true,
         now(),
-        now()
+        now(),
+        'admin'
 );
 
 -------------- INSERT: Parameters ----------------------
